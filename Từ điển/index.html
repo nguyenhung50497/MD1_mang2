@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1>Nhập từ cần dịch</h1><br>
+<input type="text" id="word" name="word">
+<button onclick="tranSlate()">Dịch</button>
+<p id="result">Tiếng Việt</p>
+<script>
+  function tranSlate() {
+  let eng = ['apple','banana','watermelon','lemon','potato','tomato','pineapple'];
+  let viet = ['táo','chuối','dưa hấu','chanh','khoai tây','cà chua','dứa'];
+  let word = document.getElementById('word').value;
+  let flag = true;
+  let indexeng = 0;
+    for (let i = 0; i < eng.length; i++) {
+      if (word === eng[i]) {
+            document.getElementById('result').innerHTML = viet[i];
+            flag = true;
+            break;
+          }
+      else {
+        flag = false;
+      }
+    }
+    if (flag !== true) {
+      document.getElementById('result').innerHTML = 'Không tìm thấy';
+    }
+  }
+</script>
+</body>
+</html>
