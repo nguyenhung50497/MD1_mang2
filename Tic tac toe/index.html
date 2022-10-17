@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<h3>Caro Game Simple</h3>
+<p id="carogame"></p>
+<input type="button" id="changec]value" value="Change Value" onclick="changeValue()">
+
+<script>
+    let a = document.getElementById("carogame");
+    let array = [];
+    let data = "";
+    let player = 1;
+    for (let i = 0; i < 5; i++) {
+        array[i] = ['-', '-', '-', '-', '-'];
+    }
+
+    for (let i = 0; i < 5; i++) {
+        data += "<br/>";
+        for (let j = 0; j < 5; j++) {
+            data += array[i][j] + "&nbsp;&nbsp;";
+        }
+    }
+    a.innerHTML = data;
+
+    function changeValue() {
+        data= '';
+        let pX = +prompt("X: ");
+        let pY = +prompt("Y: ");
+        if (player % 2 === 0) {
+            array[pX][pY] = "X";
+        } else {
+            array[pX][pY] = "O";
+        }
+        player++;
+        for (let i = 0; i < 5; i++) {
+            data += "<br/>";
+            for (let j = 0; j < 5; j++) {
+                data += array[i][j] + "&nbsp;&nbsp;&nbsp;&nbsp;";
+            }
+        }
+        a.innerHTML = data;
+        for (let x = 0; x < 5; i++) {
+            for (y = 0; y < 5; y++) {
+                if (((array[x][y] === 'X') && (array[x][y + 1] === 'X') && (array[x][y + 2] === 'X')) || ((array[x][y]
+                    === 'X') && (array[x+1][y] === 'X') && (array[x+2][y] === 'X')) || ((array[x][y]==='X') &&
+                    (array[x+1][y+1]==='X') && (array[x+2][y+2]==='X'))) {
+                    alert('X thắng');
+                }
+                else if (((array[x][y] === 'O') && (array[x][y + 1] === 'O') && (array[x][y + 2] === 'O')) || ((array[x][y]
+                    === 'O') && (array[x+1][y] === 'O') && (array[x+2][y] === 'O')) || ((array[x][y]==='O') &&
+                    (array[x+1][y+1]==='O') && (array[x+2][y+2]==='O'))) {
+                    alert('O thắng');
+                }
+            }
+        }
+    }
+</script>
+</body>
+</html>
