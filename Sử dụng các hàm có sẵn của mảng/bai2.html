@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+  let a = +prompt('Enter a number:');
+  const array = a.toString();
+  let newarray = [array[0]];
+  for (let i=1; i<array.length; i++) {
+    if (((array[i-1] % 2) === 0) && ((array[i] % 2) === 0)) {
+      newarray.push('-',array[i]);
+    }
+    else {
+      newarray.push(array[i]);
+    }
+  }
+  document.write(newarray.join(''));
+</script>
+</body>
+</html>
