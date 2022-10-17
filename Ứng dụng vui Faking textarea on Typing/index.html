@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1>Type anything slowly</h1>
+<form action="" name="fom">
+<textarea name="tex" id="word" cols="30" rows="10" onkeydown="typeTextarea()"></textarea>
+</form>
+<script>
+  let array = [' ','T','Ô','I',' ','L','À',' ','M','Ộ','T',' ','Đ','Ứ','A',' ','N','G','Ố','C','!','!'];
+  let a = '';
+  function typeTextarea() {
+    let b = document.fom.tex.value;
+    let c = b.length;
+    if (c > 0) {
+      for (let i = 1; i <= c; i++) {
+        a = a + array[i];
+        if (i == 22) {
+          document.fom.tex.value = '';
+          a = '';
+        }
+      }
+    }
+    document.fom.tex.value = a;
+    a = '';
+    setTimeout("typeTextarea()", 1);
+  }
+</script>
+</body>
+</html>
